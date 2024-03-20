@@ -1,0 +1,61 @@
+<html>
+ <head>
+<style>
+    li{
+       list-style-type: none;
+    }
+    html{
+          height: 100vh;
+            background-color: bisque;
+        }
+        #fill{
+            line-height: 50px;
+            text-align: center;
+            background-image: linear-gradient(45deg,rgba(111, 91, 91),rgb(82, 92, 108));
+            width: 70%;   
+            padding-top: 50px;
+            padding-bottom: 50px;
+            margin: 12.5%;
+            margin-top: 0%;
+            margin-left: 200px;
+            border-radius: 20px;
+            border: 10px solid black;
+           
+        }
+   </style>
+</head>
+<div id="fill">
+<li>
+    <label for="admissionDate">Admission Date</label>
+</li>
+<li>
+    <input type="date" name="admissionDate" id="admissionDate">
+    </li>
+
+<li>
+    <label for="dischargeDate">Discharge Date</label>
+    <input type="date" name="dischargeDate" id="dischargeDate">
+</li>
+<li>
+    <label for="hospitalName">Hospital Name</label>
+    <input type="text" name="hospitalName" id="hospitalName">
+</li>
+<li>
+    <label for="treatmentDescription">Treatment Description</label>
+    <textarea name="treatmentDescription" id="treatmentDescription" rows="6" cols="50"></textarea>
+</li>
+<li>
+    <label for="medicationsAdministered">Medications Administered</label>
+    <textarea name="medicationsAdministered" id="medicationsAdministered" rows="4" cols="50"></textarea>
+</li>
+<li>
+    <label for="dischargeInstructions">Discharge Instructions</label>
+    <textarea name="dischargeInstructions" id="dischargeInstructions" rows="4" cols="50"></textarea>
+</li>
+<li>
+    <label for="followUpCare">Follow-Up Care</label>
+    <textarea name="followUpCare" id="followUpCare" rows="4" cols="50"></textarea>
+</li>
+</div>
+</body>
+

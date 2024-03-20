@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD insurance details</title>
+    <style>
+        html{
+          height: 100vh;
+            background-color: bisque;
+        }
+        #main{
+            line-height: 50px;
+            text-align: center;
+            background-image: linear-gradient(45deg,rgb(111, 91, 91),rgb(82, 92, 108));
+            width: 50%;
+            height: 400px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            margin: 12.5%;
+            margin-left: 400px;
+            border-radius: 20px;
+            border: 10px solid black;
+            margin-top: 150px;
+        }
+       li{
+        list-style-type: none;
+       }
+       label{
+        font-weight: 600;
+        font-family:sans-serif;
+        color: rgb(2, 2, 43);
+        border: 2px solid black;
+        padding: 4px;
+
+    }
+
+       input{
+        width: 200px;
+        height: 20px;
+        border-radius: 10px;
+       }
+       button{
+        width: 100px;
+        height: 35px;
+        border-radius: 10px;
+       }
+       select{
+        width: 250px;
+        height: 30px;
+        border-radius: 10px;
+       }
+    </style>
+</head>
+<body>
+    <div id="main">
+    <form id="frm" action="" method="post">
+        <ul>
+            <li>
+     <label>ENTER THE NAME OF INSURANCE PROVIDER</label>
+     </li>
+     <li>
+     <select name="cars" id="cars">
+        <option value="default">default</option>
+        <option value="volvo">UnitedHealth Group</option>
+        <option value="saab">Anthem, Inc.</option>
+        <option value="opel">Aetna</option>
+        <option value="audi">Cigna Corporation</option>
+        <option value="opel">Humana Inc.</option>
+        <option value="opel">Blue Cross Blue Shield Association </option>
+        <option value="opel">Kaiser Permanente</option>
+        <option value="opel">Health Care Service Corporation</option>
+        <option value="opel">Centene Corporation</option>
+        <option value="opel">Molina Healthcare, Inc.</option>
+      </select>
+      </li>
+      <li>
+      <label>ENTER THE POLICY NUMBER</label>
+      </li>
+      <li>      <input type="text" name="pno" id="pno">
+      </li>
+      <li>
+        <label>TOTAL SERVICABLE CHARGES</label>
+      </li>
+      <li>
+        <input type="text" name="amt" id="amt">
+      </li>
+      <li>
+        <button type="submit">SUBMIT</button>
+      </li>
+      </ul>
+    </form>
+    </div>
+</body>
+</html>

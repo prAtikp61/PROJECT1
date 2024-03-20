@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fjalla+One&family=Lobster&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="./final.css">
+    <title>DigiHealth</title>
+    <title>Medical Report Comparison</title>
+    <link rel="stylesheet" href="compare.css">
+</head>
+<body>
+
+<header>
+    <nav id="nav">
+        <img class="logo" src=".//logo.png" alt="">
+        <h1 class="digi" style="color: green;">Digi<span class="span1">Health</span></h1>
+        <a class="aboutus" style="text-decoration:none" href="final.html">ABOUT US</a>
+        <a class="why1" style="text-decoration:none" href="final.html">WHY DIGIHEALTH</a>
+      
+        <a class="login" style="text-decoration:none" href="login.html">LOGIN</a>
+        <a class="settings" style="text-decoration:none" href="settings.html">SETTINGS</a>
+    </nav>
+</header>
+
+<main>
+    <h2>Medical Report Comparison</h2>
+
+    <table id="report1">
+    <caption>Report 1</caption>
+    <thead>
+        <tr>
+            <th style="color:black;">Parameter</th>
+            <th style="color:black;">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Insert rows with report 1 data here -->
+        <tr>
+            <td style="color:black;">Parameter 1</td>
+            <td style="color:black;">Value 1</td>
+        </tr>
+        <tr>
+            <td style="color:black;">Parameter 3</td>
+            <td style="color:black;">Value 2</td>
+        </tr>
+        <!-- Add more rows as needed -->
+    </tbody>
+</table>
+
+<table id="report2">
+    <caption>Report 2</caption>
+    <thead>
+        <tr>
+            <th style="color:black;">Parameter</th>
+            <th style="color:black;">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Insert rows with report 2 data here -->
+        <tr>
+            <td style="color:black;">Parameter 1</td>
+            <td style="color:black;">Value 1</td>
+        </tr>
+        <tr>
+            <td style="color:black;">Parameter 2</td>
+            <td style="color:black;">Value 2</td>
+        </tr>
+        <!-- Add more rows as needed -->
+    </tbody>
+</table>
+
+    <button onclick="compareReports()">Compare Reports</button>
+</main>
+
+<script>
+    function compareReports() {
+     var table1 = document.getElementById('report1');
+        var table2 = document.getElementById('report2');
+
+        var rows1 = table1.getElementsByTagName('tr');
+        var rows2 = table2.getElementsByTagName('tr');
+
+        // Assuming the tables have the same number of rows and structure
+        for (var i = 0; i < rows1.length; i++) {
+            var cells1 = rows1[i].getElementsByTagName('td');
+            var cells2 = rows2[i].getElementsByTagName('td');
+
+            for (var j = 0; j < cells1.length; j++) {
+                if (cells1[j].innerText !== cells2[j].innerText) {
+                    // Highlight the cells with different values
+                    cells1[j].style.backgroundColor = '#ff9999';
+                    cells2[j].style.backgroundColor = '#ff9999';
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #9ebc9e;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .faqs-container {
+            width: 80%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .question {
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .scroll-down-icon {
+            color: #4CAF50;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .answer {
+            display: none;
+            margin-top: 10px;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .faq-item.open .answer {
+            display: block;
+        }
+
+        .faq-item.open .scroll-down-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="faqs-container">
+        <h1>Frequently Asked Questions</h1>
+
+        <div id="faqs"></div>
+
+        <script>
+            // Define FAQs
+            const faqs = [
+                { question: "Is DigiHealth Safe?", answer: "We employ advanced encryption protocols and stringent security measures to ensure the confidentiality and integrity of patient records. Access is restricted to authorized healthcare personnel, and regular security audits are conducted." },
+                { question: "What Is Purpose of this Website?", answer: "The website is designed to store and manage patients' health records securely, providing a centralized platform for healthcare professionals to access and update patient information." },
+                { question: "Can patients request a copy of their health records?", answer: "Yes, patients have the right to request a copy of their health records. The website provides a streamlined process for patients to make such requests, in accordance with applicable privacy laws and regulations." },
+                { question: "Is it Free To Use?", answer: "To Upload Documents on DigiHealth the User Must SignUp On the Website." },
+                { question: "How can I contact support?", answer: "You Can Directly Contact Us, Mail Us or can Report Your Query In Help&Support page." }
+            ];
+
+            // Display FAQs dynamically
+            const faqsContainer = document.getElementById('faqs');
+
+            faqs.forEach((faq, index) => {
+                const faqItem = document.createElement('div');
+                faqItem.classList.add('faq-item');
+                faqItem.onclick = () => toggleAnswer(index);
+
+                const question = document.createElement('div');
+                question.classList.add('question');
+                question.textContent = faq.question;
+
+                const scrollDownIcon = document.createElement('i');
+                scrollDownIcon.classList.add('scroll-down-icon', 'fas', 'fa-chevron-down');
+
+                const answer = document.createElement('div');
+                answer.classList.add('answer');
+                answer.textContent = faq.answer;
+
+                question.appendChild(scrollDownIcon);
+                faqItem.appendChild(question);
+                faqItem.appendChild(answer);
+
+                faqsContainer.appendChild(faqItem);
+            });
+
+            function toggleAnswer(index) {
+                const faqItem = faqsContainer.children[index];
+                faqItem.classList.toggle('open');
+            }
+        </script>
+    </div>
+</body>
+
+</html>

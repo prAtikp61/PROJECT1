@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="form" method="post" onsubmit="return formcheck();">
+    <label>USER ID</label>
+    <input type="text" name="userid" class="uid">
+    <hr>
+
+    <LABEl>USER NAME</LABEl>
+    <input type="text" name="username" id="uname">
+    <hr>
+
+    <label>USER ADDRESS</label>
+    <input type="text" name="useradd" id="udd">
+    <hr>
+
+    <LABEl>GENDER</LABEl>
+    <input type="radio" name="male" id="male"><span>MALE</span>
+    <input type="radio" name="female" id="female"><span>FEMALE</span>
+    <hr>
+
+    <LABEl> EMAIL ID</LABEl>
+    <input type="email" name="email" id="email">
+    
+    <input type="submit" onclick="formcheck(event)" value="submit">
+    </form>
+</body>
+<script>
+  function formcheck(event) {
+    
+
+    var uid = document.form.userid;
+    var uname = document.form.username;
+    var useradd = document.form.useradd;
+    var gender1 = document.form.male;
+    var gender2 = document.form.female;
+    var email = document.form.email;
+
+
+    var email = document.getElementById('email').value;
+
+    // Validation logic
+    if (!checkuid(uid, 5, 12)) {
+        alert("UID must be between 5 and 12 characters");
+        return false;
+    }
+
+    if (!checkname(uname)) {
+        alert("User name must contain only alphabetic characters");
+        return false;
+    }
+
+    if (!checkuseradd(useradd)) {
+        alert("User address must have alphanumeric characters only");
+        return false;
+    }
+
+    if (!checkgender(gender1, gender2)) {
+        alert("Please select a gender");
+        return false;
+    }
+
+    if (!checkemail(email)) {
+        alert("You have entered an invalid email address!");
+        return false;
+    }
+
+    alert("Form submitted");
+    return true;
+}
+
+
+function checkuid(uid, mn, mx) {
+    var len=uid.value.length;
+    if(len>mn && len<mx)
+    return true;
+else{
+    return false;
+}
+}
+
+function checkname(uname) {
+    var value=/^[a-zA-Z]+$/;
+    if(uname.value.match(value))
+    {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+function checkuseradd(uadd) {
+    var value1 =/^[0-9a-zA-Z]+$/;
+    if(uadd.value.match(value1))
+{
+    return true;
+}
+else{
+    return false;   
+}
+}
+
+function checkgender(gender1, gender2) {
+    return gender1.checked || gender2.checked;
+}
+
+function checkemail(email) {
+    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+}
+
+
+</script>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>patient info</title>
+    <style>
+        li{
+            list-style-type: none;
+        }
+        html{
+          height: 100vh;
+            background-color: bisque;
+        }
+        #fill{
+            line-height: 50px;
+            text-align: center;
+            background-image: linear-gradient(45deg,rgb(111, 91, 91),rgb(82, 92, 108));
+            width: 70%;
+            font-size: 2rem;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            margin: 12.5%;
+            margin-top: 0%;
+            margin-left: 200px;
+            border-radius: 20px;
+            border: 10px solid black;
+           
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; margin-top: 50px;">PATIENT INFORMATION</h1>
+    <div id="fill">
+        <form action="" id="frm" method="post">
+            <ul>
+                <li>
+                    <label >enter your full name</label>
+                </li>
+                <li>
+                    <input type="text" name="name" id="name">
+                </li>
+                <li>
+                    <label for="">enter your date of birth</label>
+                </li>
+                <li>
+                    <input type="date">
+                </li>
+                <li>
+                    <label for="">enter your gender</label>
+                </li>
+                <li>
+                    <input type="radio" name="male" id="male">
+                    <input type="radio" name="female" id="female">
+                </li>
+                <li>
+                    <label for="">enter your adress</label>
+                </li>
+                <li>
+                    <input type="text">
+                </li>
+                <li>
+                    <label for=""> enter your phone number</label>
+                </li>
+                <li>
+                    <input type="text" name="" id="">
+                </li>
+                <li>
+                    <label for="">enter your email address</label>
+                </li>
+                <li>
+                    <input type="text" name="" id="">
+                </li>
+                <li>
+                    <label for="">emergency contact number</label>
+                </li>
+                <li>
+                    <input type="text" name="" id="">
+                </li>
+                <li>
+                    <label for="">PRIMARY CARE PHYSICIAN</label>
+                </li>
+                <li>
+                  <label for="">name of physician</label>
+                </li>
+                <li>
+                    <input type="text" name="" id="">
+                </li>
+                <li>
+                    <label for="">phone no of physician</label>
+                </li>
+                <li>
+                    <input type="text" name="" id="">
+                </li>
+                
+                    <li>
+                        <label for="preferredPharmacy">PREFERRED PHARMACY</label>
+                    </li>
+                    <li>
+                        <label for="pharmacyName">Name of Pharmacy</label>
+                    </li>
+                    <li>
+                        <input type="text" name="pharmacyName" id="pharmacyName">
+                    </li>
+                    <li>
+                        <label for="pharmacyPhone">Phone Number of Pharmacy</label>
+                    </li>
+                    <li>
+                        <input type="text" name="pharmacyPhone" id="pharmacyPhone">
+                    </li>
+                    <li>
+                        <label for="knownAllergies">Known Allergies</label>
+                    </li>
+                    <li>
+                        <textarea name="knownAllergies" id="knownAllergies" rows="4" cols="50"></textarea>
+                    </li>
+                    <li>
+                        <label for="chronicConditions">Chronic Conditions</label>
+                    </li>
+                    <li>
+                        <textarea name="chronicConditions" id="chronicConditions" rows="4" cols="50"></textarea>
+                    </li>
+                    <li>
+                        <label for="currentMedications">Current Medications</label>
+                    </li>
+                    <li>
+                        <textarea name="currentMedications" id="currentMedications" rows="4" cols="50"></textarea>
+                    </li>
+                    <li>
+                        <label for="pastSurgeries">Past Surgeries or Hospitalizations</label>
+                    </li>
+                    <li>
+                        <textarea name="pastSurgeries" id="pastSurgeries" rows="4" cols="50"></textarea>
+                    </li>
+                             
+                    <li>
+                        <button type="submit">SUBMIT
+                        </button>
+                    </li>
+                
+            </ul>
+
+        </form>
+    </div>
+    
+</body>
+</html>

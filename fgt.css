@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #008000;
+}
+body
+{
+    background-image: url("forgot.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.container
+{
+    width: 420px;
+    height: 500px;
+    background: #faf9f9;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.container::before
+{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 420px;
+    height: 500px;
+    background: linear-gradient(0deg,transparent,
+    transparent,#36a9fc,#36a9fc,#36a9fc);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}
+.container::after
+{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 420px;
+    height: 500px;
+    background: linear-gradient(0deg,transparent,
+    transparent,#36a9fc,#36a9fc,#36a9fc);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+.borderLine
+{
+    position: absolute;
+    top: 0;
+    inset: 0;
+}
+.borderLine::before
+{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 420px;
+    height: 500px;
+    background: linear-gradient(0deg,transparent,
+    transparent,#0a0a0a,#0a0a0a,#0a0a0a);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+    animation-delay: -1.5s; 
+}
+.borderLine::after
+{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 420px;
+    height: 500px;
+    background: linear-gradient(0deg,transparent,
+    transparent,#0a0a0a,#0a0a0a,#0a0a0a);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+    animation-delay: -4.5s;
+}
+@keyframes animate
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+.container form 
+{
+    position: absolute;
+    inset: 4px;
+    background: #fdfafa;
+    padding: 50px 40px;
+    border-radius: 8px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+.container form h2
+{
+    color: #0d0d0d;
+    font-weight: 650;
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin-bottom: 30px;
+}
+.container form p
+{
+    color: #0d0d0d;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+.container form .input-text
+{
+    position: relative;
+    width: 300px;
+    margin-top: 45px;
+}
+.container form .input-text input
+{
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    color: #23242a;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    z-index: 10;
+}
+.container form .input-text label
+{
+    position: absolute;
+    left: 0;
+    padding: 20px 0px 10px;
+    pointer-events: none;
+    color: #0d0d0d;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+.container form .input-text input:valid ~ label,
+.container form .input-text input:focus ~ label
+{
+    color: #0c0c0c;
+    font-size: 0.75em;
+    transform: translateY(-34px);
+}
+.container form .input-text i
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #36a9fc;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+    pointer-events: none;
+}
+.container form .input-text input:valid ~ i,
+.container form .input-text input:focus ~ i
+{
+    height: 44px;
+
+}
+.container form .links
+{
+    display: flex;
+    justify-content: space-between;
+
+}
+.container form .links a
+{
+    margin: 10px 0;
+    font-size: 0.75em;
+    color: #0f0e0e;
+    text-decoration: none;
+}
+.container form .links a:hover,
+.container form .links a:nth-child(2)
+{
+    color: #0a0a0a;
+}
+.container form input[type="submit"]
+{
+    border: none;
+    outline: none;
+    padding: 9px 25px;
+    background: #36a9fc;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 4px;
+    font-weight: 600;
+    width: 150px;
+    margin-top: 25px;
+}
+.container form input[type="submit"]:active
+{
+    opacity: 0.8;
+}
+.container form input[type="button"]
+{
+    border: none;
+    outline: none;
+    padding: 9px 25px;
+    background: #36a9fc;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 4px;
+    font-weight: 600;
+    width: 100px;
+    margin-top: 25px;
+}
+.container form input[type="button"]:active
+{
+    opacity: 0.8;
+}
+.checkbox-label 
+{
+    display: flex;
+    align-items: center; 
+    margin-bottom: 15px;
+}
+.checkbox-label input[type="checkbox"] 
+{
+    margin-right: 8px; 
+}
+
+  
+  

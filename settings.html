@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SettingsPage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color:#9ebc9e;
+            margin: 0;
+            padding: 0; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .settings-container {
+            width: 80%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .settings-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .settings-option:last-child {
+            border-bottom: none;
+        }
+
+        .settings-option a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .settings-option i {
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+
+        .settings-option:hover a {
+            color: #4CAF50;
+        }
+
+        .logout-btn {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #45a049;
+        }
+
+        .logout-btn:active {
+            background-color: #3d8b3d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="settings-container">
+        <h1>Settings</h1>
+
+        <div class="settings-option">
+            <a href="editprofile.html">
+                <i class="fas fa-user"></i> Edit Profile
+            </a>
+        </div>
+
+        <div class="settings-option">
+            <a href="faqs.html">
+                <i class="fas fa-question-circle"></i> FAQs
+            </a>
+        </div>
+
+        <div class="settings-option">
+            <a href="help&support.html">
+                <i class="fas fa-info-circle"></i> Help and Support
+            </a>
+        </div>
+
+        <div class="settings-option">
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        function logout() {
+            // Implement your logout logic here
+            alert('Logout clicked!');
+        }
+    </script>
+</body>
+
+</html>
