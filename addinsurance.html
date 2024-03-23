@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADD insurance details</title>
+    <title>ADD Insurance Details</title>
     <style>
-        html{
-          height: 100vh;
-            background-color: bisque;
+        html {
+            height: 100vh;
+         
         }
-        #main{
+        #main {
             line-height: 50px;
             text-align: center;
-            background-image: linear-gradient(45deg,rgb(111, 91, 91),rgb(82, 92, 108));
+          
             width: 50%;
             height: 400px;
             padding-top: 50px;
@@ -23,73 +23,77 @@
             border: 10px solid black;
             margin-top: 150px;
         }
-       li{
-        list-style-type: none;
-       }
-       label{
-        font-weight: 600;
-        font-family:sans-serif;
-        color: rgb(2, 2, 43);
-        border: 2px solid black;
-        padding: 4px;
-
-    }
-
-       input{
-        width: 200px;
-        height: 20px;
-        border-radius: 10px;
-       }
-       button{
-        width: 100px;
-        height: 35px;
-        border-radius: 10px;
-       }
-       select{
-        width: 250px;
-        height: 30px;
-        border-radius: 10px;
-       }
+        li {
+            list-style-type: none;
+        }
+        label {
+            font-weight: 600;
+            font-family: sans-serif;
+            color: rgb(2, 2, 43);
+            border: 2px solid black;
+            padding: 4px;
+        }
+        input, select, button {
+            width: 250px;
+            height: 30px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border: 2px solid black;
+            padding-left: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100px;
+            height: 35px;
+            border-radius: 10px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
     <div id="main">
-    <form id="frm" action="" method="post">
-        <ul>
-            <li>
-     <label>ENTER THE NAME OF INSURANCE PROVIDER</label>
-     </li>
-     <li>
-     <select name="cars" id="cars">
-        <option value="default">default</option>
-        <option value="volvo">UnitedHealth Group</option>
-        <option value="saab">Anthem, Inc.</option>
-        <option value="opel">Aetna</option>
-        <option value="audi">Cigna Corporation</option>
-        <option value="opel">Humana Inc.</option>
-        <option value="opel">Blue Cross Blue Shield Association </option>
-        <option value="opel">Kaiser Permanente</option>
-        <option value="opel">Health Care Service Corporation</option>
-        <option value="opel">Centene Corporation</option>
-        <option value="opel">Molina Healthcare, Inc.</option>
-      </select>
-      </li>
-      <li>
-      <label>ENTER THE POLICY NUMBER</label>
-      </li>
-      <li>      <input type="text" name="pno" id="pno">
-      </li>
-      <li>
-        <label>TOTAL SERVICABLE CHARGES</label>
-      </li>
-      <li>
-        <input type="text" name="amt" id="amt">
-      </li>
-      <li>
-        <button type="submit">SUBMIT</button>
-      </li>
-      </ul>
-    </form>
+        <form id="frm" action="" method="post">
+            <ul>
+                <li>
+                    <label>ENTER THE NAME OF INSURANCE PROVIDER</label>
+                </li>
+                <li>
+                    <select name="insurance_provider" id="insurance_provider">
+                        <option value="default">default</option>
+                        <option value="UnitedHealth Group">UnitedHealth Group</option>
+                        <option value="Anthem, Inc.">Anthem, Inc.</option>
+                        <option value="Aetna">Aetna</option>
+                        <option value="Cigna Corporation">Cigna Corporation</option>
+                        <option value="Humana Inc.">Humana Inc.</option>
+                        <option value="Blue Cross Blue Shield Association">Blue Cross Blue Shield Association</option>
+                        <option value="Kaiser Permanente">Kaiser Permanente</option>
+                        <option value="Health Care Service Corporation">Health Care Service Corporation</option>
+                        <option value="Centene Corporation">Centene Corporation</option>
+                        <option value="Molina Healthcare, Inc.">Molina Healthcare, Inc.</option>
+                    </select>
+                </li>
+                <li>
+                    <label>ENTER THE POLICY NUMBER</label>
+                </li>
+                <li>
+                    <input type="text" name="policy_number" id="policy_number">
+                </li>
+                <li>
+                    <label>TOTAL SERVICABLE CHARGES</label>
+                </li>
+                <li>
+                    <input type="text" name="total_charges" id="total_charges">
+                </li>
+                <li>
+                    <button type="submit">SUBMIT</button>
+                </li>
+            </ul>
+        </form>
     </div>
 </body>
 </html>
