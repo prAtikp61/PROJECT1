@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="add.css" rel="stylesheet">
+    <title>Add Documents</title>
+    <style>
+         body {
+         height: 100vh;
+         background-image: linear-gradient(0deg, #9DBC98, #EBD9B4);
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: contain;
+         margin: 0;
+         padding: 0;
+        }
+
+        .anton-regular {
+        font-family: "Anton", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        color: #294B29;
+        }
+
+
+        .huge{  
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 10px;
+        
+        }
+
+        p{
+            font-family: Arial, Helvetica, sans-serif;
+            color: #294B29;
+        }
+
+        .mri{ 
+            position: relative;
+            top: 30px;
+            left: 10px;
+            background:rgba(0, 181, 204,0.3);
+            border:7px solid #294B29;
+            border-radius: 10px;
+            width: 400px;
+            height: 180px;
+        }
+        .ct{
+            position: relative;
+            top: 30px;
+            background:rgba(0, 181, 204,0.3);  
+            width: 400px;
+            height: 180px;
+            border: 7px solid #294B29;
+            border-radius: 10px;            
+        }
+           
+
+        .bp{
+            position: relative;
+            top: 30px;
+            height: 180px;
+            width: 400px;
+            background:rgba(0, 181, 204,0.3);
+            border: 7px solid #294B29;
+            border-radius: 10px;
+            right: 10px;
+        }
+        .xr{
+            height: 180px;
+            width: 400px;
+            background:rgba(0, 181, 204,0.3);
+            position: relative;
+            top: 30px;
+            left: 10px;
+            border: 7px solid #294B29;
+            border-radius: 10px;
+        }
+        .history{
+            position: relative;
+            top: 30px;
+            height: 180px;
+            width: 400px;
+            background:rgba(0, 181, 204,0.3);
+            border: 7px solid #294B29;
+            border-radius: 10px;
+           
+
+        }
+
+        .wr{
+            padding: 10px;   
+        }
+      
+        .x1::-webkit-file-upload-button{
+            visibility: hidden;
+        }
+
+        .custom-file-label,.custom-file-input ,.x1{
+          
+            position: relative;
+            left: 100px;
+            background-color: #6eb364;
+            width: 200px;
+            height:30px;
+            text-align: center;
+        }
+
+        .patient{
+            height: 180px;
+            width: 400px;
+            background:rgba(0, 181, 204,0.3);
+            position: relative;
+            top: 30px;
+            border: 7px solid #294B29;
+            border-radius: 10px;
+            right: 10px;
+
+        }
+
+        .do1{
+            height: 180px;
+            width: 400px;
+            background:rgba(0, 181, 204,0.3);
+            position: relative;
+            top: 30px;
+            border: 7px solid #294B29;
+            left: 10px;
+        }
+
+        button{
+            background-color: #6eb364;
+            color: #204b20;
+            border: none;
+            padding: 10px 20px;
+            left: 145px;
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .button1{
+            background-color: #6eb364;
+            color: #204b20;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+            right: 60px;
+        }
+
+        button:hover{
+            background-color: #45a049;
+        }
+
+        .do2 {
+            height: 180px;
+            width: 400px;
+            background:rgba(0, 181, 204,0.3);
+            position: relative;
+            top: 30px;
+            border: 7px solid #294B29;
+            border-radius: 10px;
+            left: 1px;
+
+        }
+        .custom-file-input {
+            visibility: hidden;
+            width: 0;
+            height: 0;
+        }
+        .custom-file-label {
+            display: inline-block;
+            background-color: #6eb364;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+          
+        }
+        .custom-file-label::after {
+            content: 'Select File';
+        }
+
+        li{
+            list-style-type: none;
+        }
+        .in{
+            position: relative;
+            left: -50px;
+            bottom: 25px;
+        }
+        /* General Styles */
+body {
+    height: 100vh;
+    background-image: linear-gradient(0deg, #9DBC98, #EBD9B4);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navigation Styles */
+.main-menu {
+    background-color: #294B29;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.main-menu ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.main-menu ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.main-menu ul li a {
+    color: #EBD9B4;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.main-menu ul li a:hover {
+    background-color: #6eb364;
+}
+
+/* Page Content Styles */
+.intro {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.intro p {
+    font-size: 40px;
+    color: #294B29;
+    margin-bottom: 20px;
+}
+
+.intro img {
+    max-width: 100%;
+    height: auto;
+}
+
+.vid {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.h1111 {
+    color: #294B29;
+}
+
+/* Explore Button */
+.explore {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.explore button {
+    background-color: #6eb364;
+    color: #204b20;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.explore button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    .main-menu ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .main-menu ul li a {
+        display: block;
+        padding: 10px;
+    }
+}
+
+.flex1{
+    flex-direction: row;
+    display: flex;
+    position: relative;
+    left: 100px;
+    font-size: 3rem;
+}
+
+.imaged{
+    position: relative;
+    left: 300px;
+}
+    </style>
+</head>
+<body>
+    <nav id="HI" class="main-menu">
+        <ul>
+            <li class="has-subnav">
+                <a href="mri.html">
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="nav-text">
+                       MRI Reports
+                    </span>
+                </a>
+              
+            </li>
+            <li class="has-subnav">
+                <a href="ct.html">
+                    <i class="fa fa-globe fa-2x"></i>
+                    <span class="nav-text">
+                        CT-Scan Reports
+                    </span>
+                </a>
+                
+            </li>
+            <li class="has-subnav">
+                <a href="bpr.html">
+                   <i class="fa fa-comments fa-2x"></i>
+                    <span class="nav-text">
+                        Blood Reports
+                    </span>
+                </a>
+                
+            </li>
+            <li class="has-subnav">
+                <a href="xr.html">
+                   <i class="fa fa-camera-retro fa-2x"></i>
+                    <span class="nav-text">
+                        X-Ray Reports
+                    </span>
+                </a>
+               
+            </li>
+            <li>
+               <a href="addinsurance.html">
+                   <i class="fa fa-cogs fa-2x"></i>
+                    <span class="nav-text">
+                        Insurance Information
+                    </span>
+                </a>
+            </li>
+            <li>
+               <a href="medinfo.html">
+                    <i class="fa fa-map-marker fa-2x"></i>
+                    <span class="nav-text">
+                        Patient Information Form
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="medinfo.html">
+                   <i class="fa fa-info fa-2x"></i>
+                    <span class="nav-text">
+                        Medical History Form
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="clinic.html">
+                   <i class="fa fa-info fa-2x"></i>
+                    <span class="nav-text">
+                        Clinical Notes
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="hospital.html">
+                   <i class="fa fa-info fa-2x"></i>
+                    <span class="nav-text">
+                        Hospital Treatment Information
+                    </span>
+                </a>
+            </li>                        
+        </ul>
+
+        <ul class="logout">
+            <li>
+               <a href="#">
+                     <i class="fa fa-power-off fa-2x"></i>
+                    <span class="nav-text">
+                        Logout
+                    </span>
+                </a>
+            </li>  
+        </ul>
+    </nav>
+    
+   
+        <div class="intro">
+            <div class="flex1">
+            <p>WELCOME USER , <br> <br> NOW YOU ARE ALL SET TO <br> <br> DOWNLOAD YOUR DOCUMENTS</p>
+            <img class="imaged" src="./bk.jpg" alt="">
+            </div>  
+        </div>
+
+        <div class="vid">
+            <div class="flex2">
+            <p>GET TO KNOW ABOUT HOW TO DOWNLOAD DOCUMENTS</p>
+           <video width="700px" loop autoplay controls>
+            <source style="width: 20%;" src="./video.mp4" type="video/mp4">
+            <track label="english" kind="subtitles" srclang="en" src="eng.vtt" default>
+           </video>
+           <hr>
+        
+           </div>
+        </div>
+        
+        <div class="explore">
+         <a href="medinfo.html"><button>EXPLORE NOW</button></a>
+        </div>
+
+</body>
+<script>
+   
+</script>
+</html> 

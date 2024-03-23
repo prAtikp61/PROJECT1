@@ -24,8 +24,7 @@ nav {
     flex-direction: row;
     height: 150px;
     z-index: 1;
-
-
+    position: sticky;
     border-bottom: 10px double black;
     border-right: 10px double black;
 
