@@ -102,10 +102,14 @@
             visibility: hidden;
         }
 
-        .x1{
-            border: 2px solid #294B29;
+        .custom-file-label,.custom-file-input ,.x1{
+          
             position: relative;
-            left: 60px;
+            left: 100px;
+            background-color: #6eb364;
+            width: 200px;
+            height:30px;
+            text-align: center;
         }
 
         .patient{
@@ -141,6 +145,17 @@
             position: relative;
         }
 
+        .button1{
+            background-color: #6eb364;
+            color: #204b20;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+            right: 60px;
+        }
+
         button:hover{
             background-color: #45a049;
         }
@@ -156,6 +171,31 @@
             left: 1px;
 
         }
+        .custom-file-input {
+            visibility: hidden;
+            width: 0;
+            height: 0;
+        }
+        .custom-file-label {
+            display: inline-block;
+            background-color: #6eb364;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+          
+        }
+        .custom-file-label::after {
+            content: 'Select File';
+        }
+
+        li{
+            list-style-type: none;
+        }
+        .in{
+            position: relative;
+            left: -50px;
+            bottom: 25px;
+        }
     </style>
 </head>
 <body>
@@ -163,31 +203,79 @@
     <section class="huge">
         <div  class="mri do">
             <h1 class="wr anton-regular" align="center" >MRI REPORTS</h1>
-            <p align="center" font="Arial">Upload your MRI reports here</p>
+        
             <form action="upload.php" method="post">
-                <input class="x1" type="file" name="MRI" id="mri" align="center">
+                <div class="in">
+                <ul>
+                <li>
+                <label for="fileUpload" class="custom-file-label"></label>
+                </li>
+                <li>
+                <input type="file" id="fileUpload" class="custom-file-input">
+                </li>
+                <li>
+                <button class="button1" type="submit">Upload</button>
+                </li>
+                </ul>
+                </div>
             </form>
         </div>
      
         <div class="ct do"> 
              <h1 class="wr anton-regular" align="center">CT-SCANS</h1>
-             <p align="center">Upload your MRI reports here</p>
+           
             <form action="upload.php" method="post">
-                <input class="x1" type="file" name="MRI" id="ct">
+               <div class="in">
+                <ul>
+                    <li>
+                    <label for="fileUpload" class="custom-file-label"></label>
+                    </li>
+                    <li>
+                    <input type="file" id="fileUpload" class="custom-file-input">
+                    </li>
+                    <li>
+                    <button class="button1" type="submit">Upload</button>
+                    </li>
+                    </ul>
+                </div>
             </form>
         </div>
         <div class="bp do"> 
              <h1 class="wr anton-regular" align="center">BLOOD REPORTS</h1>
-             <p align="center" >Upload your blood reports here</p>
+        
             <form action="upload.php" method="post">
-                <input class="x1" type="file" name="bp" id="bp">
+                <div class="in">
+                <ul>
+                    <li>
+                    <label for="fileUpload" class="custom-file-label"></label>
+                    </li>
+                    <li>
+                    <input type="file" id="fileUpload" class="custom-file-input">
+                    </li>
+                    <li>
+                    <button class="button1" type="submit">Upload</button>
+                    </li>
+                    </ul>
+                    </div>
             </form>
         </div>
         <div class="xr do">
             <h1 class="wr anton-regular" align="center">X-RAYS</h1>
-            <p align="center">Upload your X-RAYS reports here</p>
+          
             <form action="upload.php" method="post">
-                <input class="x1" type="file" name="xr" id="xr">
+                <div class="in">
+                <ul>
+                    <li>
+                    <label for="fileUpload" class="custom-file-label"></label>
+                    </li>
+                    <li>
+                    <input type="file" id="fileUpload" class="custom-file-input">
+                    </li>
+                    <li>
+                    <button class="button1" type="submit">Upload</button>
+                    </li>
+                    </ul>
+                    </div>
             </form>
         </div>
         <div class="patient do2">
@@ -223,10 +311,10 @@
 
 </body>
 <script>
-    const boxes = document.querySelector(".do");
-    boxes.addEventListener("onclick", f1());
- //   f1(){
-  //      document.
-  //  }
+      document.getElementById('fileUpload').addEventListener('change', function () {
+            var fileName = this.files[0].name;
+            var label = document.querySelector('.custom-file-label');
+            label.innerHTML = fileName;
+        });
 </script>
 </html> 

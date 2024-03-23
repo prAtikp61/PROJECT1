@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom File Input</title>
+    <style>
+        .custom-file-input {
+            visibility: hidden;
+            width: 0;
+            height: 0;
+        }
+        .custom-file-label {
+            display: inline-block;
+            background-color: #f1f1f1;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .custom-file-label::after {
+            content: 'Select File'; /* Your custom text here */
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post" enctype="multipart/form-data">
+        <label for="fileUpload" class="custom-file-label"></label>
+        <input type="file" id="fileUpload" class="custom-file-input">
+        <button type="submit">Upload</button>
+    </form>
+    <script>
+        document.getElementById('fileUpload').addEventListener('change', function () {
+            var fileName = this.files[0].name;
+            var label = document.querySelector('.custom-file-label');
+            label.innerHTML = fileName;
+        });
+    </script>    
+</body>
+</html>
