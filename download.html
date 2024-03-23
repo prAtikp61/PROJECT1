@@ -200,6 +200,7 @@
         /* General Styles */
 body {
     height: 100vh;
+    width: 100%;
     background-image: linear-gradient(0deg, #9DBC98, #EBD9B4);
     background-position: center;
     background-repeat: no-repeat;
@@ -305,9 +306,37 @@ body {
     font-size: 3rem;
 }
 
+.flex2{
+    font-size: 2rem;
+    position: relative;
+    left: 100px;
+    font-size: 1rem;
+}
+
+.hi1{
+    font-size: 2rem;
+}
+
 .imaged{
     position: relative;
     left: 300px;
+}
+
+.explore{
+    position: relative;
+    bottom: 100px;
+    left: 300px;
+   
+}
+.explore button{
+    position: relative;
+    bottom: 50px;
+    left: 100px;
+    width: 300px;
+    height: 100px;
+    width: 300px;
+    height: 100px;
+    font-size: 1.5rem;
 }
     </style>
 </head>
@@ -412,20 +441,16 @@ body {
             </div>  
         </div>
 
-        <div class="vid">
-            <div class="flex2">
-            <p>GET TO KNOW ABOUT HOW TO DOWNLOAD DOCUMENTS</p>
-           <video width="700px" loop autoplay controls>
+        <br><br>
+   
+         <div class="flex2">
+            <p class="hi1">GET TO KNOW ABOUT HOW TO DOWNLOAD DOCUMENTS</p>
+           <video width="500x" loop autoplay controls>
             <source style="width: 20%;" src="./video.mp4" type="video/mp4">
             <track label="english" kind="subtitles" srclang="en" src="eng.vtt" default>
            </video>
-           <hr>
-        
-           </div>
-        </div>
-        
-        <div class="explore">
-         <a href="medinfo.html"><button>EXPLORE NOW</button></a>
+            
+           <a class="explore" href="medinfo.html"><button>EXPLORE NOW</button></a>
         </div>
 
 </body>
