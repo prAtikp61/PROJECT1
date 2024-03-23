@@ -3,35 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="radio"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
-<form action="medinfo.php" method="post">
-    <li>
-        <label for="knownAllergies">Known Allergies</label>
-    </li>
-    <li>
-        <textarea name="knownAllergies" id="knownAllergies" rows="4" cols="50"></textarea>
-    </li>
-    <li>
-        <label for="chronicConditions">Chronic Conditions</label>
-    </li>
-    <li>
-        <textarea name="chronicConditions" id="chronicConditions" rows="4" cols="50"></textarea>
-    </li>
-    <li>
-        <label for="currentMedications">Current Medications</label>
-    </li>
-    <li>
-        <textarea name="currentMedications" id="currentMedications" rows="4" cols="50"></textarea>
-    </li>
-    <li>
-        <label for="pastSurgeries">Past Surgeries or Hospitalizations</label>
-    </li>
-    <li>
-        <textarea name="pastSurgeries" id="pastSurgeries" rows="4" cols="50"></textarea>
-    </li>
-                
-</form>   
+    <div class="container">
+        <h2>User Registration Form</h2>
+        <form name="form" method="post" action="./server.php">
+            <div class="form-group">
+                <label for="userid">USER ID</label>
+                <input type="text" name="userid" id="userid" class="uid">
+                <?php echo $error ; ?>
+            </div>
+
+            <div class="form-group">
+                <label for="username">USER NAME</label>
+                <input type="text" name="username" id="username">
+            </div>
+
+            <div class="form-group">
+                <label for="useradd">USER ADDRESS</label>
+                <input type="text" name="useradd" id="useradd">
+            </div>
+
+            <div class="form-group">
+                <label>GENDER</label>
+                <input type="radio" name="gender" value="male" id="male"><span>MALE</span>
+                <input type="radio" name="gender" value="female" id="female"><span>FEMALE</span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">EMAIL ID</label>
+                <input type="email" name="email" id="email">
+            </div>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 </body>
 </html>

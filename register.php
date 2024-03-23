@@ -6,7 +6,7 @@ if (isset($_POST['name'], $_POST['email'], $_POST['contact'], $_POST['password']
     $password = $_POST['password'];
     $confirmpassword = $_POST['confirmpassword'];
 
-    $conn = new mysqli('localhost', 'root', '', 'project0');
+    $conn = new mysqli('localhost', 'root', '', 'project');
     if ($conn->connect_error) {
         die('Connection Failed : ' . $conn->connect_error);
     } else {
