@@ -4,17 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <title>ADD Documents</title>
     <style>
          body {
          height: 100vh;
-         background-image: linear-gradient(60deg, blue, pink);
+         background-image: linear-gradient(0deg, #9DBC98, #EBD9B4);
          background-position: center;
          background-repeat: no-repeat;
          background-size: contain;
          margin: 0;
          padding: 0;
-}
+        }
+
+        .anton-regular {
+        font-family: "Anton", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        color: #294B29;
+        }
+
 
         .huge{
             display: flex;
@@ -25,12 +36,17 @@
         
         }
 
+        p{
+            font-family: Arial, Helvetica, sans-serif;
+            color: #294B29;
+        }
+
         .mri{ 
             position: relative;
             top: 30px;
             left: 10px;
             background:rgba(0, 181, 204,0.3);
-            border:7px solid black;
+            border:7px solid #294B29;
             border-radius: 10px;
             width: 400px;
             height: 180px;
@@ -41,8 +57,8 @@
             background:rgba(0, 181, 204,0.3);  
             width: 400px;
             height: 180px;
-            border: 7px solid black;
-            border-radius: 10px;
+            border: 7px solid #294B29;
+            border-radius: 10px;            
         }
            
 
@@ -52,7 +68,7 @@
             height: 180px;
             width: 400px;
             background:rgba(0, 181, 204,0.3);
-            border: 7px solid black;
+            border: 7px solid #294B29;
             border-radius: 10px;
             right: 10px;
         }
@@ -63,7 +79,7 @@
             position: relative;
             top: 30px;
             left: 10px;
-            border: 7px solid black;
+            border: 7px solid #294B29;
             border-radius: 10px;
         }
         .history{
@@ -72,14 +88,14 @@
             height: 180px;
             width: 400px;
             background:rgba(0, 181, 204,0.3);
-            border: 7px solid black;
+            border: 7px solid #294B29;
             border-radius: 10px;
            
 
         }
 
         .wr{
-            padding: 10px;
+            padding: 10px;   
         }
       
         .x1::-webkit-file-upload-button{
@@ -87,7 +103,7 @@
         }
 
         .x1{
-            border: 2px solid black;
+            border: 2px solid #294B29;
             position: relative;
             left: 60px;
         }
@@ -98,7 +114,7 @@
             background:rgba(0, 181, 204,0.3);
             position: relative;
             top: 30px;
-            border: 7px solid black;
+            border: 7px solid #294B29;
             border-radius: 10px;
             right: 10px;
 
@@ -110,18 +126,32 @@
             background:rgba(0, 181, 204,0.3);
             position: relative;
             top: 30px;
-            border: 7px solid black;
+            border: 7px solid #294B29;
             left: 10px;
         }
 
-        
+        button{
+            background-color: #6eb364;
+            color: #204b20;
+            border: none;
+            padding: 10px 20px;
+            left: 145px;
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        button:hover{
+            background-color: #45a049;
+        }
+
         .do2 {
             height: 180px;
             width: 400px;
             background:rgba(0, 181, 204,0.3);
             position: relative;
             top: 30px;
-            border: 7px solid black;
+            border: 7px solid #294B29;
             border-radius: 10px;
             left: 1px;
 
@@ -132,60 +162,58 @@
     
     <section class="huge">
         <div  class="mri do">
-            <h1 class="wr">MRI REPORTS</h1>
-            <h2>upload your MRI reports here</h2>
+            <h1 class="wr anton-regular" align="center" >MRI REPORTS</h1>
+            <p align="center" font="Arial">Upload your MRI reports here</p>
             <form action="upload.php" method="post">
-                <input class="x1" type="file" name="MRI" id="mri">
+                <input class="x1" type="file" name="MRI" id="mri" align="center">
             </form>
         </div>
      
         <div class="ct do"> 
-             <h1 class="wr">CT-SCANS</h1>
-             <h2>upload your MRI reports here</h2>
+             <h1 class="wr anton-regular" align="center">CT-SCANS</h1>
+             <p align="center">Upload your MRI reports here</p>
             <form action="upload.php" method="post">
                 <input class="x1" type="file" name="MRI" id="ct">
             </form>
         </div>
         <div class="bp do"> 
-             <h1 class="wr">BLOOD REPORTS</h1>
-             <h2>upload your blood reports here</h2>
+             <h1 class="wr anton-regular" align="center">BLOOD REPORTS</h1>
+             <p align="center" >Upload your blood reports here</p>
             <form action="upload.php" method="post">
                 <input class="x1" type="file" name="bp" id="bp">
             </form>
         </div>
         <div class="xr do">
-            <h1 class="wr">X-RAYS</h1>
-            <h2>upload your X-RAYS reports here</h2>
+            <h1 class="wr anton-regular" align="center">X-RAYS</h1>
+            <p align="center">Upload your X-RAYS reports here</p>
             <form action="upload.php" method="post">
                 <input class="x1" type="file" name="xr" id="xr">
             </form>
         </div>
         <div class="patient do2">
-            <h1 class="wr">INSURANCE INFORMATION</h1>
-           <a href="addinsurance.html"><button>ADD INFO</button></a>
+            <h1 class="wr anton-regular" align="center">INSURANCE INFORMATION</h1>
+            <a href="addinsurance.html" align="center"><button>ADD INFO</button></a>
         </div>
 
         <div class="patient do">
-            <h1 class="wr">PATIENT INFORMATION FORM</h1>
-           <a href="medinfo.html"><button>ADD INFO</button></a>
-     </div>
+            <h1 class="wr anton-regular" align="center">PATIENT INFORMATION FORM</h1>
+            <a href="medinfo.html"><button>ADD INFO</button></a>
+        </div>
 
-     <div class="patient do1">
-        <h1 class="wr">MEDICAL HISTORY FORM</h1>
-       <a href="medinfo.html"><button>ADD INFO</button></a>
- </div>
+        <div class="patient do1">
+            <h1 class="wr anton-regular" align="center">MEDICAL HISTORY FORM</h1>
+            <a href="medinfo.html"><button>ADD INFO</button></a>
+        </div>
 
+        <div class="patient do2">
+            <h1 class="wr anton-regular" align="center">CLINICAL NOTES</h1>
+            <a href="clinic.html"><button>ADD INFO</button></a>
+        </div>
 
- 
- <div class="patient do2">
-    <h1 class="wr">CLINICAL NOTES</h1>
-   <a href="clinic.html"><button>FILL INFORMATION</button></a>
-</div>
-
-<div class="patient do">
-    <h1 class="wr">HOSPITAL TREATMENT INFORMATION</h1>
-   <a href="hospital.html"><button>ADD INFO</button></a>
-</div>
+        <div class="patient do">
+            <h1 class="wr anton-regular" align="center">HOSPITAL TREATMENT INFORMATION</h1>
+            <a href="hospital.html"><button>ADD INFO</button></a>
+        </div>
 
 
 
@@ -197,8 +225,8 @@
 <script>
     const boxes = document.querySelector(".do");
     boxes.addEventListener("onclick", f1());
-    f1(){
-        document.
-    }
+ //   f1(){
+  //      document.
+  //  }
 </script>
 </html> 
