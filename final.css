@@ -326,7 +326,7 @@ nav {
     width: 45%;
     color: white;
     position: relative;
-    bottom: 200px;
+    /* bottom: 200px; */
 
 }
 
@@ -424,7 +424,6 @@ i:before {
     background-color: #5d7928;
     height: 400px;
     width: auto;
-      
 }
 
 .in11{
@@ -492,10 +491,12 @@ hr {
     text-align: start;
 }
 
-
+.upload{
+    height: 200vh;
+}
 .in1{
     position: relative;
-    bottom: 100px;
+    /* bottom: 100px; */
 
 }
 
@@ -586,4 +587,17 @@ input{
 
   .h1111{
     color: #07000e;
+  }
+  .list{
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1rem;
+    color: rgb(233, 232, 232);
+
+  }
+  .txt{
+    font-size: 1.8rem;
+    color: white;
   }
