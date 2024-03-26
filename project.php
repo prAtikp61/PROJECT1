@@ -1,27 +1,34 @@
 <?php
+$servername = "localhost";
+$USERNAME = "root";
+$password = "";
+$database = "patil";
 
-$servername="localhost";
-$username="root";
-$password="";
-$database="pratik";
+$conn = new mysqli($servername, $USERNAME, $password, $database);
 
-$conn=new mysqli($servername, $username, $password, $database);
-
-if($conn)
-{
-    echo "you have submitted successfully your feedback kindly go back";
-    $value=$_POST["huge1"];
-    $sql= "INSERT INTO project (huge) VALUES ('$value')";
-    if ($conn->query($sql) === TRUE) {
+if ($conn) {
+    session_start(); // Start the session
+    $_SESSION['username'] = $username;
+    echo "You have submitted your feedback successfully. Kindly go back.";
+    
+    // Check if "huge1" is set in $_POST
+    if (isset($_POST["huge1"])) {
+        $value = $_POST["huge1"];
+        $username1 = $_SESSION['username']; // Retrieve username from session
+        
+        // Use prepared statement to prevent SQL injection
+        $stmt = $conn->prepare("INSERT INTO project (huge, username1) VALUES (?, ?)");
+        $stmt->bind_param("ss", $value, $username1);
+        if ($stmt->execute()) {
+            // Insertion successful
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+        $stmt->close();
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: 'huge1' is not set in the form submission.";
     }
+} else {
+    echo "Connection failed";
 }
-else {
-    echo "failed";
-}
-
-
-
-
-
+?>
