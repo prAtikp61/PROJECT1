@@ -43,7 +43,7 @@ header {
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
-}
+} 
 
 .service img {
     width: 100%;
@@ -58,4 +58,15 @@ header {
 
 .service p {
     font-size: 16px;
+}
+
+
+.video-container {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+video {
+    width: 100%;
+    display: block;
 }

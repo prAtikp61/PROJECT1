@@ -11,7 +11,7 @@
     <title>Add Documents</title>
     <style>
          body {
-         height: 100vh;
+         /* height: 100vh; */
          background-image: linear-gradient(0deg, #9DBC98, #EBD9B4);
          background-position: center;
          background-repeat: no-repeat;
@@ -197,6 +197,36 @@
             left: -50px;
             bottom: 25px;
         }
+        .wel{
+            text-align: center;
+            font-size: 2rem;
+            padding-top: 2rem;
+        }
+        .lock{
+            width: 70rem;
+            height: 18rem;
+            position: relative;
+            left: 12rem;
+            
+        }
+        .know{
+            text-align: center;
+        }
+        
+        
+        .all{
+            display: flex;
+            padding-left: 15rem;
+            padding-bottom: 2rem;
+        }
+        .exp1{
+            height: 4rem;
+            width: 18rem;
+            position: relative;
+            right: 14rem;
+            top: 12rem;
+            border-radius: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -294,23 +324,23 @@
     
    
         <div class="intro">
-            <P>WELCOME USER , NOW YOU ARE ALL SET TO SECURE YOUR DOCUMENTS</P>
-            <img src="./bk.jpg" alt="">
+            <P class="wel">WELCOME USER , NOW YOU ARE ALL SET TO SECURE YOUR DOCUMENTS</P>
+            <img src="lock.jpg" class="lock">
         </div>
         <div class="vid">
-            <h1 class="h1111">GET TO KNOW ABOUT HOW TO UPOLAOD DOCUMENTS</h1>
-        <video width="700px" loop autoplay controls>
-            <source style="width: 50%;" src="./video.mp4" type="video/mp4">
-            <track label="english" kind="subtitles" srclang="en" src="eng.vtt" default>
-        </video>
-        <hr>
-        <audio width="100%" controls>
-            <source src="video.mp4">
-        </audio>
+            <h1 class="know">GET TO KNOW ABOUT HOW TO UPOLAOD DOCUMENTS</h1>
+            
         </div>
-        <div class="explore">
-         <a href="medinfo.html"><button>EXPLORE NOW</button></a>
+        <div class="all">
+                <video width="700px" loop autoplay controls class="vid1">
+                <source style="width: 50%;" src="./video.mp4" type="video/mp4">
+                <track label="english" kind="subtitles" srclang="en" src="eng.vtt" default>
+                </video>
+                <div class="explore">
+                    <a href="medinfo.html"><button class="exp1">EXPLORE NOW</button></a>
+                </div>
         </div>
+        
 
 </body>
 <script>
