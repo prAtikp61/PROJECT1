@@ -18,6 +18,24 @@ header {
     margin-top: 20px;
 }
 
+.back {
+    position: absolute;
+    left: 1330px; 
+    top: 40px; 
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none; 
+}
+
+.back:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
 .service {
     width: 300px;
     margin: 20px;

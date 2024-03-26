@@ -8,7 +8,7 @@
 <body>
     <div class="box">
      <span class="borderLine"></span> 
-     <form action="register.php" method="post">
+     <form action="register.php" method="post" onsubmit="return validateForm()">
         <h2>Hi Stranger here's What we need</h2>
         <div class="inputBox">
         <input type="text" required="required" id="name" name="name">
@@ -40,7 +40,20 @@
                     </div>
                 </div>
 </div>
-
-    </form>
+</form>
 </body>
+<script>
+      function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmpassword").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
+</script>
 </html>
+

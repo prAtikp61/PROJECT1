@@ -3,12 +3,12 @@ html {
     background-color: white;
 }
 
-canvas {
+.smiley {
    
     display: block;
     margin: 0 auto;
     position: relative;
-    top: -1170px;
+    top: -770px;
     left: -280px;
 }
 
