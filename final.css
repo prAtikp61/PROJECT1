@@ -215,12 +215,10 @@ nav {
     font-size: xx-large;
     font-weight: bolder;
     text-shadow: 2px 2px #07000e;
-    text-
+   
 }
 
-.span1 {
-    color: rgb(231, 173, 65);
-}
+
 
 
 .digi {
@@ -552,10 +550,10 @@ input{
 }
 
 
-.lesee{
-    z-index: 2;
+.pratik{
+ z-index: 2;
  position: relative;
- top: -930px;
+ top: -550px;
  box-shadow:rgb(230, 164, 164) 10px 10px ;
  left: 800px;
  width: 500px;

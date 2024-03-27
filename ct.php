@@ -1,3 +1,51 @@
+<?php
+session_start();
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['some'])) {
+    $xray = $_FILES['some'];
+    $username = $_SESSION['username']; 
+    
+  
+    $conn = mysqli_connect('localhost', 'root', '', 'patil');
+
+
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    
+    $sql = "INSERT INTO ct (username, ct) VALUES (?, ?)";
+
+    $stmt = mysqli_prepare($conn, $sql);
+
+   
+    mysqli_stmt_bind_param($stmt, "ss", $username, $xrayFileData);
+
+    $xrayFileData = file_get_contents($xray['tmp_name']);
+
+    
+    if (mysqli_stmt_execute($stmt)) {
+        echo "<script>alert('ct-scan report uploaded successfully'); window.location.href='final.html';</script>";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+
+  
+    mysqli_stmt_close($stmt);
+
+  
+    mysqli_close($conn);
+
+    exit;
+}
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -199,12 +247,23 @@
         }
 
         li{
-            list-style-type: none;
+            list-style-type: none; 
         }
         .in{
             position: relative;
             left: -50px;
             bottom: 25px;
+        }
+        .huge{
+            padding-top: 7rem;
+            padding-left: 3rem
+        }
+        .custom-file-label{
+            margin-top: 2rem;
+        }
+        .ct{
+            height: 400px;
+            padding: 1rem;
         }
     </style>
     </head>
@@ -212,7 +271,7 @@
         <nav class="main-menu">
             <ul>
                 <li class="has-subnav">
-                    <a href="mri.html">
+                    <a href="mri.php">
                         <i class="fa fa-home fa-2x"></i>
                         <span class="nav-text">
                            MRI Reports
@@ -221,7 +280,7 @@
                   
                 </li>
                 <li class="has-subnav">
-                    <a href="ct.html">
+                    <a href="ct.php">
                         <i class="fa fa-globe fa-2x"></i>
                         <span class="nav-text">
                             CT-Scan Reports
@@ -230,7 +289,7 @@
                     
                 </li>
                 <li class="has-subnav">
-                    <a href="bpr.html">
+                    <a href="bpr.php">
                        <i class="fa fa-comments fa-2x"></i>
                         <span class="nav-text">
                             Blood Reports
@@ -239,7 +298,7 @@
                     
                 </li>
                 <li class="has-subnav">
-                    <a href="xr.html">
+                    <a href="xr.php">
                        <i class="fa fa-camera-retro fa-2x"></i>
                         <span class="nav-text">
                             X-Ray Reports
@@ -255,14 +314,7 @@
                         </span>
                     </a>
                 </li>
-                <li>
-                   <a href="medinfo.html">
-                        <i class="fa fa-map-marker fa-2x"></i>
-                        <span class="nav-text">
-                            Patient Information Form
-                        </span>
-                    </a>
-                </li>
+              
                 <li>
                     <a href="medinfo.html">
                        <i class="fa fa-info fa-2x"></i>
@@ -302,17 +354,17 @@
         </nav>
         
         <section class="huge">
-            <div  class="mri do">
-                <h1 class="wr anton-regular" align="center" >X-RAY REPORTS</h1>
-            
-                <form action="upload.php" method="post">
+            <div  class="ct do">
+                <h1 class="wr anton-regular" align="center" >CT-SCAN REPORTS</h1>
+                <p>At our health-related website, we provide advanced CT (Computed Tomography) scanning services to assist in accurate diagnosis and treatment planning for our patients. Our state-of-the-art CT scanners produce detailed cross-sectional images of the body, enabling healthcare providers to visualize internal structures with exceptional clarity.</p>
+                <form enctype="multipart/form-data" action="ct.php" method="post">
                     <div class="in">
                     <ul>
                     <li>
                     <label for="fileUpload" class="custom-file-label"></label>
                     </li>
                     <li>
-                    <input type="file" id="fileUpload" class="custom-file-input">
+                    <input type="file" id="fileUpload" name="some" class="custom-file-input">
                     </li>
                     <li>
                     <button class="button1" type="submit">Upload</button>

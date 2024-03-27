@@ -1,3 +1,53 @@
+<?php
+session_start();
+
+// Check if the form for X-Ray report is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['some'])) {
+    $xray = $_FILES['some'];
+    $username = $_SESSION['username']; // Assuming you have stored the username in the session
+    
+    // Database connection
+    $conn = mysqli_connect('localhost', 'root', '', 'patil');
+
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    // Prepare the SQL statement with a placeholder for the binary data
+    $sql = "INSERT INTO xr (username, xray) VALUES (?, ?)";
+
+    // Prepare the statement
+    $stmt = mysqli_prepare($conn, $sql);
+
+    // Bind parameters
+    mysqli_stmt_bind_param($stmt, "ss", $username, $xrayFileData);
+
+    // Get binary data from the uploaded file
+    $xrayFileData = file_get_contents($xray['tmp_name']);
+
+    // Execute the statement
+    if (mysqli_stmt_execute($stmt)) {
+        echo "<script>alert('X-Ray report uploaded successfully'); window.location.href='final.html';</script>";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+
+    // Close statement
+    mysqli_stmt_close($stmt);
+
+    // Close connection
+    mysqli_close($conn);
+
+    exit; // Terminate script execution
+}
+
+// HTML and CSS code for the X-Ray report upload form
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -212,7 +262,7 @@
         <nav class="main-menu">
             <ul>
                 <li class="has-subnav">
-                    <a href="mri.html">
+                    <a href="mri.php">
                         <i class="fa fa-home fa-2x"></i>
                         <span class="nav-text">
                            MRI Reports
@@ -221,7 +271,7 @@
                   
                 </li>
                 <li class="has-subnav">
-                    <a href="ct.html">
+                    <a href="ct.php">
                         <i class="fa fa-globe fa-2x"></i>
                         <span class="nav-text">
                             CT-Scan Reports
@@ -230,7 +280,7 @@
                     
                 </li>
                 <li class="has-subnav">
-                    <a href="bpr.html">
+                    <a href="bpr.php">
                        <i class="fa fa-comments fa-2x"></i>
                         <span class="nav-text">
                             Blood Reports
@@ -239,7 +289,7 @@
                     
                 </li>
                 <li class="has-subnav">
-                    <a href="xr.html">
+                    <a href="xr.php">
                        <i class="fa fa-camera-retro fa-2x"></i>
                         <span class="nav-text">
                             X-Ray Reports
@@ -255,14 +305,7 @@
                         </span>
                     </a>
                 </li>
-                <li>
-                   <a href="medinfo.html">
-                        <i class="fa fa-map-marker fa-2x"></i>
-                        <span class="nav-text">
-                            Patient Information Form
-                        </span>
-                    </a>
-                </li>
+        
                 <li>
                     <a href="medinfo.html">
                        <i class="fa fa-info fa-2x"></i>
@@ -303,16 +346,16 @@
         
         <section class="huge">
             <div  class="mri do">
-                <h1 class="wr anton-regular" align="center" >BLOOD REPORTS</h1>
+                <h1 class="wr anton-regular" align="center" >X-RAY REPORTS</h1>
             
-                <form action="upload.php" method="post">
+                <form enctype="multipart/form-data" action="xr.php" method="post">
                     <div class="in">
                     <ul>
                     <li>
                     <label for="fileUpload" class="custom-file-label"></label>
                     </li>
                     <li>
-                    <input type="file" id="fileUpload" class="custom-file-input">
+                    <input type="file" id="fileUpload" name="some" class="custom-file-input">
                     </li>
                     <li>
                     <button class="button1" type="submit">Upload</button>

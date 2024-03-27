@@ -1,31 +1,45 @@
 <?php
 $message = ""; // Initialize an empty message variable
 
-if (isset($_POST['name'], $_POST['email'], $_POST['contact'], $_POST['password'], $_POST['confirmpassword'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Form submitted, process the data
+    
     $name = $_POST['name'];
     $email = $_POST['email'];
     $contact = $_POST['contact'];
-    $password = $_POST['password'];
-    $confirmpassword = $_POST['confirmpassword'];
+    $PASSWORD = $_POST['password'];
 
     $servername = "localhost";
     $username = "root";
     $password = "";
     $database = "patil";
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $conn = new mysqli($servername, $username, $password, $database);
+    $conn = mysqli_connect($servername, $username, $password, $database);
     if ($conn->connect_error) {
         die('Connection Failed : ' . $conn->connect_error);
+    } 
+
+    $sql_check_username = "SELECT * FROM regi WHERE username = '$name'";
+    $result_check_username = mysqli_query($conn, $sql_check_username);
+
+    if (mysqli_num_rows($result_check_username) > 0) {
+        $message = "Username already exists. Please use a different username.";
     } else {
-        $stmt = $conn->prepare("INSERT INTO registration (name, email, contact, password, confirmpassword) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssiss", $name, $email, $contact, $hashedPassword, $confirmpassword);
-        $stmt->execute();
-        $message = "Registration done"; // Set the message variable
-        $stmt->close();
-        $conn->close();
+        $sql = "INSERT INTO regi (username, email, contact, pass) VALUES ('$name', '$email', '$contact', '$PASSWORD')";
+        if (mysqli_query($conn, $sql)) {
+            $message = "Record inserted successfully. Welcome $name";
+        } else {
+            $message = "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
     }
+
+    mysqli_close($conn);
+} else {
+    // Form not submitted, do nothing or handle as needed
 }
+
+// Rest of your PHP code...
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,11 +97,15 @@ if (isset($_POST['name'], $_POST['email'], $_POST['contact'], $_POST['password']
     }
 
     // Display the alert message when registration is successful
-    var message = "<?php echo $message; ?>";
-    if (message !== "") {
-        alert(message);
-        window.location.href = "login.php";
-    }
+var message = "<?php echo $message; ?>";
+if (message !== "") {
+    alert(message);
+    // Redirect to login.php after alert
+    window.location.href = "login12.php";
+}
+
+
+
 </script>
 </body>
 </html>

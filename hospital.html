@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="add.css" rel="stylesheet">
+    <link rel="stylesheet" href="hospital.css">
     <title>Hospital Treatment Information</title>
     <style>
         .h11{
             position: relative;
             display: inline;
             left: 38%;
-            top: 20px;
+            top: 10px;
+            bottom: 10px;
         }
         body {
             font-family: Arial, sans-serif;
@@ -21,7 +23,7 @@
         #fill {
             max-width: 800px;
             margin: 50px auto;
-            padding: 20px;
+            padding: 10px;
             background-image: linear-gradient(45deg, rgba(111, 91, 91), rgb(82, 92, 108));
             border-radius: 20px;
             border: 10px solid black;
@@ -45,7 +47,7 @@
             box-sizing: border-box;
         }
         textarea {
-            height: 100px; /* Reduced height for better appearance */
+            height: 50px; /* Reduced height for better appearance */
         }
         input[type="submit"] {
             background-color: #4CAF50;
@@ -61,7 +63,7 @@
     </style>
 </head>
 <body>
-    <nav class="main-menu">
+    <nav class="main-menu" >
         <ul>
             <li class="has-subnav">
                 <a href="mri.html">
@@ -82,7 +84,7 @@
                 
             </li>
             <li class="has-subnav">
-                <a href="bpr.html">
+                <a href="bpr.php">
                    <i class="fa fa-comments fa-2x"></i>
                     <span class="nav-text">
                         Blood Reports
@@ -91,7 +93,7 @@
                 
             </li>
             <li class="has-subnav">
-                <a href="xr.html">
+                <a href="xr.php">
                    <i class="fa fa-camera-retro fa-2x"></i>
                     <span class="nav-text">
                         X-Ray Reports
@@ -107,14 +109,7 @@
                     </span>
                 </a>
             </li>
-            <li>
-               <a href="medinfo.html">
-                    <i class="fa fa-map-marker fa-2x"></i>
-                    <span class="nav-text">
-                        Patient Information Form
-                    </span>
-                </a>
-            </li>
+        
             <li>
                 <a href="medinfo.html">
                    <i class="fa fa-info fa-2x"></i>

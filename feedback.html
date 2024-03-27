@@ -1,84 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feedback</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color:#429045;
-        margin: auto;
-        padding: 4rem;
-    }
-
-    .container {
-        max-width: 600px;
-        margin: 50px auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-        color: #429045;
-        text-align: center;
-    }
-
-    form {
-        margin-top: 20px;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 5px;
-        color: #333;
-    }
-
-    input[type="text"],
-    textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-    }
-
-    textarea {
-        height: 150px;
-    }
-
-    input[type="submit"] {
-        background-color:#429045;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    input[type="submit"]:hover {
-        background-color:#429045;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="final1.css">
+    <title>Document</title>
 </head>
 <body>
-<div class="container">
-    <h1>Feedback Form</h1>
-    <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+    <div class="feedback" id="here">
+      
+        <div class="feed1">      
+          <div class="f1">
+            <h1 class="f111">FEEDBACK</h1>
+          </div>
+        <div class="in11">
+          <h2>GIVE  YOUR VALUABLE FEEDBACK</h2>
+          <form action="project.php" method="post">
+            <input type="text" class="box" name="huge1" >
+            <input class="btnn" type="submit" value="SUBMIT">
+          </form>
+      
+        </div>
+       </div>
+      </div>
+    
+      <img src="./feed.jpg" class="pratik" alt="" style=" z-index: 2;
+      position: relative;
+      top: -500px;
+      box-shadow:rgb(230, 164, 164) 10px 10px ;
+      left: 800px;
+      width: 500px;
+      height: 500px;
+      border-radius: 10px;" width="200" height="200">
 
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" required>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <input type="submit" value="Submit">
-    </form>
-</div>
+      <canvas id="smileyCanvas" class="smiley" width="200" height="200"></canvas>
 </body>
 </html>
+<script>
+      // Get the canvas element
+      var canvas = document.getElementById("smileyCanvas");
+      var ctx = canvas.getContext("2d");
+  
+      // Draw the circle for the face
+      ctx.beginPath();
+      ctx.arc(100, 100, 50, 0, Math.PI * 2);
+      ctx.fillStyle = "yellow";
+      ctx.fill();
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+  
+      // Draw the eyes
+      ctx.beginPath();
+      ctx.arc(75, 80, 5, 0, Math.PI * 2);
+      ctx.arc(125, 80, 5, 0, Math.PI * 2);
+      ctx.fillStyle = "black";
+      ctx.fill();
+  
+      // Draw the mouth
+      ctx.beginPath();
+      ctx.arc(100, 100, 30, 0, Math.PI);
+      ctx.stroke();
+  </script>
