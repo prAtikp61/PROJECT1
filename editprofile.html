@@ -134,7 +134,6 @@
     document.getElementById('edit-profile-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Clear previous error messages
     var errorMessages = document.querySelectorAll('.error-message');
     errorMessages.forEach(function(errorMessage) {
         errorMessage.textContent = '';
