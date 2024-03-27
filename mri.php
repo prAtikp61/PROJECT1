@@ -1,48 +1,45 @@
 <?php
 session_start();
 
-// Check if the form for MRI report is submitted
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['some'])) {
     $mri = $_FILES['some'];
-    $username = $_SESSION['username']; // Assuming you have stored the username in the session
+    $username = $_SESSION['username'];
     
-    // Database connection
+    
     $conn = mysqli_connect('localhost', 'root', '', 'patil');
 
-    // Check connection
+  
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    // Prepare the SQL statement with a placeholder for the binary data
-    $sql = "INSERT INTO doc  (username, mri, ct, blood, xray) VALUES (?, ?, NULL, NULL, NULL)";
+  
+    $sql = "INSERT INTO doc  (username, mri) VALUES (?, ?)";
 
-    // Prepare the statement
+
     $stmt = mysqli_prepare($conn, $sql);
 
-    // Bind parameters
+   
     mysqli_stmt_bind_param($stmt, "ss", $username, $mriFileData);
 
-    // Get binary data from the uploaded file
     $mriFileData = file_get_contents($mri['tmp_name']);
 
-    // Execute the statement
+   
     if (mysqli_stmt_execute($stmt)) {
         echo "<script>alert('MRI report uploaded successfully'); window.location.href='final.html';</script>";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 
-    // Close statement
+ 
     mysqli_stmt_close($stmt);
 
-    // Close connection
     mysqli_close($conn);
 
-    exit; // Terminate script execution
+    exit; 
 }
 
-// Repeat similar code blocks for other document types (CT-Scan, Blood Report, X-Ray Report)
 ?>
 
 
@@ -272,7 +269,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['some'])) {
         <nav class="main-menu">
             <ul>
                 <li class="has-subnav">
-                    <a href="mri.html">
+                    <a href="mri.php">
                         <i class="fa fa-home fa-2x"></i>
                         <span class="nav-text">
                            MRI Reports
@@ -281,7 +278,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['some'])) {
                   
                 </li>
                 <li class="has-subnav">
-                    <a href="ct.html">
+                    <a href="ct.php">
                         <i class="fa fa-globe fa-2x"></i>
                         <span class="nav-text">
                             CT-Scan Reports
@@ -290,7 +287,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['some'])) {
                     
                 </li>
                 <li class="has-subnav">
-                    <a href="bpr.html">
+                    <a href="bpr.php">
                        <i class="fa fa-comments fa-2x"></i>
                         <span class="nav-text">
                             Blood Reports
@@ -299,7 +296,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['some'])) {
                     
                 </li>
                 <li class="has-subnav">
-                    <a href="xr.html">
+                    <a href="xr.php ">
                        <i class="fa fa-camera-retro fa-2x"></i>
                         <span class="nav-text">
                             X-Ray Reports
@@ -315,14 +312,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['some'])) {
                         </span>
                     </a>
                 </li>
-                <li>
-                   <a href="medinfo.html">
-                        <i class="fa fa-map-marker fa-2x"></i>
-                        <span class="nav-text">
-                            Patient Information Form
-                        </span>
-                    </a>
-                </li>
+               
                 <li>
                     <a href="medinfo.html">
                        <i class="fa fa-info fa-2x"></i>

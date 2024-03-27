@@ -19,9 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $count = $authRes->num_rows;
 
     if ($count == 1) {
-        // Fetch the row data
+       
         $row = $authRes->fetch_assoc();
-        $username = $row["username"]; // Replace 'username' with the actual column name
+        $username = $row["username"];
         $email = $row["email"];
         $contact = $row["contact"];
         $pass = $row["pass"];
@@ -32,10 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['contact'] = $contact;
 
         echo "<script>alert('Login successfully $username '); window.location.href='final.html';</script>";
-        exit(); // Add exit() after redirection to stop further execution
+        exit(); 
     } else {
         echo "<script>alert('Password Invalid'); window.location.href='login.php';</script>";
-        exit(); // Add exit() after redirection to stop further execution
+        exit(); 
     }
 
     $stmt->close();

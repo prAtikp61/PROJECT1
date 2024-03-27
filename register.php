@@ -3,6 +3,7 @@ $message = ""; // Initialize an empty message variable
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Form submitted, process the data
+    
     $name = $_POST['name'];
     $email = $_POST['email'];
     $contact = $_POST['contact'];
@@ -102,6 +103,8 @@ if (message !== "") {
     // Redirect to login.php after alert
     window.location.href = "login12.php";
 }
+
+
 
 </script>
 </body>

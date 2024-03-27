@@ -1,3 +1,50 @@
+<?php
+session_start();
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['some'])) {
+    $xray = $_FILES['some'];
+    $username = $_SESSION['username']; 
+  
+    $conn = mysqli_connect('localhost', 'root', '', 'patil');
+
+   
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    
+    $sql = "INSERT INTO bpr (username, bpr) VALUES (?, ?)";
+
+    $stmt = mysqli_prepare($conn, $sql);
+
+    
+    mysqli_stmt_bind_param($stmt, "ss", $username, $xrayFileData);
+
+    
+    $xrayFileData = file_get_contents($xray['tmp_name']);
+
+    
+    if (mysqli_stmt_execute($stmt)) {
+        echo "<script>alert('blood report uploaded successfully'); window.location.href='final.html';</script>";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+
+ 
+    mysqli_stmt_close($stmt);
+
+  
+    mysqli_close($conn);
+
+    exit; 
+}
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -212,7 +259,7 @@
         <nav class="main-menu">
             <ul>
                 <li class="has-subnav">
-                    <a href="mri.html">
+                    <a href="mri.php">
                         <i class="fa fa-home fa-2x"></i>
                         <span class="nav-text">
                            MRI Reports
@@ -221,7 +268,7 @@
                   
                 </li>
                 <li class="has-subnav">
-                    <a href="ct.html">
+                    <a href="ct.php">
                         <i class="fa fa-globe fa-2x"></i>
                         <span class="nav-text">
                             CT-Scan Reports
@@ -230,7 +277,7 @@
                     
                 </li>
                 <li class="has-subnav">
-                    <a href="bpr.html">
+                    <a href="bpr.php">
                        <i class="fa fa-comments fa-2x"></i>
                         <span class="nav-text">
                             Blood Reports
@@ -239,7 +286,7 @@
                     
                 </li>
                 <li class="has-subnav">
-                    <a href="xr.html">
+                    <a href="xr.php">
                        <i class="fa fa-camera-retro fa-2x"></i>
                         <span class="nav-text">
                             X-Ray Reports
@@ -255,14 +302,7 @@
                         </span>
                     </a>
                 </li>
-                <li>
-                   <a href="medinfo.html">
-                        <i class="fa fa-map-marker fa-2x"></i>
-                        <span class="nav-text">
-                            Patient Information Form
-                        </span>
-                    </a>
-                </li>
+              
                 <li>
                     <a href="medinfo.html">
                        <i class="fa fa-info fa-2x"></i>
@@ -303,16 +343,16 @@
         
         <section class="huge">
             <div  class="mri do">
-                <h1 class="wr anton-regular" align="center" >X-RAY REPORTS</h1>
+                <h1 class="wr anton-regular" align="center" >BLOOD REPORTS</h1>
             
-                <form action="upload.php" method="post">
+                <form action="bpr.php" enctype="multipart/form-data" method="post">
                     <div class="in">
                     <ul>
                     <li>
                     <label for="fileUpload" class="custom-file-label"></label>
                     </li>
                     <li>
-                    <input type="file" id="fileUpload" class="custom-file-input">
+                    <input type="file" id="fileUpload" name="some" class="custom-file-input">
                     </li>
                     <li>
                     <button class="button1" type="submit">Upload</button>
