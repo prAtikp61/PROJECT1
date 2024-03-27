@@ -3,9 +3,11 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
+        
         $name = $_POST["name"];
         $email = $_POST["email"];
         $password = $_POST["password"];
+        
         
         $_SESSION["name"] = $name;
         $_SESSION["email"] = $email;
@@ -31,9 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $e->getMessage();
     }
 } else {
-   
     header("Location: form.html");
     exit();
 }
 ?>
-
