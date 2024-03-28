@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $sql = "INSERT INTO regi (username, email, contact, pass) VALUES ('$name', '$email', '$contact', '$PASSWORD')";
         if (mysqli_query($conn, $sql)) {
-            $message = "Record inserted successfully. Welcome $name";
+            echo "<script>alert('Record inserted successfully Welcome $name'); window.location.href='login.php';</script>";
         } else {
             $message = "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
@@ -97,15 +97,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Display the alert message when registration is successful
-var message = "<?php echo $message; ?>";
-if (message !== "") {
-    alert(message);
-    // Redirect to login.php after alert
-    window.location.href = "login12.php";
-}
+// var message = "<?php echo $message; ?>";
+// if (message !== "") {
+//     alert(message);
+//     // Redirect to login.php after alert
+//     window.location.href = "login12.php";
+// }
 
 
 
 </script>
 </body>
-</html>
+</html
