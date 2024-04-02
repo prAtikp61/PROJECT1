@@ -2,17 +2,17 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Establish database connection
+    
     $conn = mysqli_connect('localhost', 'root', '', 'patil');
     if ($conn->connect_error) {
         die('Connection Failed : ' . $conn->connect_error);
     }
 
-    // Retrieve username and password from POST data
+    
     $input_username = $_POST['Username'];
     $input_password = $_POST['password'];
 
-    // Prepare and execute SQL query using prepared statements to prevent SQL injection
+    
     $stmt = $conn->prepare("SELECT * FROM regi WHERE username = ?");
     $stmt->bind_param("s", $input_username);
     $stmt->execute();
@@ -22,18 +22,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         $stored_password = $row["pass"];
 
-        // Verify password using password_verify if passwords are hashed
+       
         if ($input_password == $stored_password) {
-            // Password is correct, set session variables
+            
             $_SESSION['username'] = $input_username;
             $_SESSION['email'] = $row["email"];
             $_SESSION['contact'] = $row["contact"];
 
-            // Redirect to final.html upon successful login
-            echo "<script>alert('Welcome $name'); window.location.href='final.html';</script>";
+          
+            echo "<script>alert('Welcome $name'); window.location.href='final.php';</script>";
             exit();
         } else {
-            // Password is incorrect
+      
             echo "<script>alert('invalid password'); window.location.href='login.php';</script>";
         }
     } else {

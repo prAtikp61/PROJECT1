@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fjalla+One&family=Lobster&display=swap"
+        rel="stylesheet">
+        
+    <title>DigiHealth</title>
+    <link rel="stylesheet" href="final.css">
+</head>
+
+
+    <header>
+    <nav id="nav"> 
+        <img class="logo" src=".//logo.png" alt="">
+        <h1 class="digi" style="color: green;">Digi<span class="span1">Health</span></h1>
+        <a class="aboutus" style="text-decoration:none" href="aboutus.html">ABOUT US</a>
+        <a class="aboutus" style="text-decoration:none" href="feedback.html">FEEEDBACK</a>
+        <a class="why1" style="text-decoration:none" href="why.html">WHY DIGIHEALTH</a>
+        <a class="login" style="text-decoration:none" href="logout.php">LOGOUT</a>
+        <?php
+        session_start();
+        if(isset($_SESSION['username'])) {
+            echo '<a style="text-decoration:none" class="login" href="settings.html">'.htmlspecialchars($_SESSION['username']).'</a>';
+        } else {
+            echo '<a style="text-decoration:none" class="login" href="login.php">Login</a>';
+        }
+        ?>
+        
+       
+        <link rel="stylesheet" href="./final.css">
+    </nav>  
+</header>
+<body>
+<section class="hello">
+    <div class="hello1">
+        <img class="back" src="./backk1.jpg" alt="">
+
+
+        <img id="hii" src="./pratik.jpg" alt="main_image">
+
+
+        <p class="helllo3"> welcome to DigiHealth, <br> <br> where we prioritize way efficient <br><br> and secure
+            health record management <br> <br>such as <i> </i></p>
+    </div>
+</section>
+
+
+<section class="upload">
+
+    <div class="up2">
+
+        <div class="in2">
+         
+            <p class="upy"> Easily upload all your health documents securely with DigiHealth. Our intuitive interface allows you to
+                effortlessly
+                add lab reports, prescriptions, and more. Your documents are encrypted for maximum security, ensuring
+                your privacy. With
+                simple categorization options, finding your files is a breeze.
+                Streamline your health management by centralizing all your documents with DigiHealth.</p>
+                <img class="upload__" src="./upload.avif" alt="">
+            <a class="anchor1" href="add.html">UPLOAD YOUR DOCUMENTS <br>-----------</a>
+        </div>
+
+
+  
+        <div class="in1">
+            <img class="upload_" src="./download_.jpg" alt="">
+            <p class="upx">
+                Downloading your health documents is a breeze with DigiHealth. Simply navigate
+                to the file you need and with a click, it's yours. Our platform ensures secure access to your sensitive
+                information,
+                so you can download with confidence. Whether it's lab results or medical records, retrieving your
+                documents is quick and easy.
+                Take control of your health data and download your documents hassle-free with DigiHealth.  </p>
+            <a class="anchor" href="download.html">DOWNLOAD YOUR DOCUMENTS<br>----------------------------------</a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- <div class="feedback" id="here">
+      
+      <div class="feed1">      
+        <div class="f1">
+                        <h1 class="f111">FEEDBACK</h1>
+        </div>
+      <div class="in11">
+        <h2>GIVE  YOUR VALUEABLE FEEDBACK</h2>
+        <form action="project.php" method="post">
+          <input type="text" class="box" name="huge1" >
+          <input class="btnn" type="submit" value="SUBMIT">
+        </form>
+    
+      </div>
+     </div>
+    </div> -->
+
+
+    <div class="footer">
+      <div class="list">
+        <div class="l1">
+            <p class="txt">Patient portal login</p>
+            <p>Online bill payment</p>
+            <p>Prescription refill request</p>
+            <p>MRI</p>
+        </div>
+        <div class="l2">
+            <p class="txt">Blogs</p>
+            <p>Testimonials</p>
+            <p>Services</p>
+            <p>Patent Products</p>
+        </div>
+        <div class="l3"><p></p>
+            <p class="txt">Disclaimer</p>
+            <p>Testimonials</p>
+            <p>Privacy Policy</p>
+            <p>Terms & Services</p>
+        </div>
+        <div class="l4">
+            <p class="txt">Contact us</p>
+            <p>digiHealth@99</p>
+            <p>987654321</p>
+            <p>123456789</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- <img src="./feed.jpg" class="lesee" alt="">
+    <canvas id="smileyCanvas" width="200" height="200"></canvas> -->
+
+
+    </body>
+
+    <script>
+        // Get the canvas element
+        var canvas = document.getElementById("smileyCanvas");
+        var ctx = canvas.getContext("2d");
+    
+        // Draw the circle for the face
+        ctx.beginPath();
+        ctx.arc(100, 100, 50, 0, Math.PI * 2);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+    
+        // Draw the eyes
+        ctx.beginPath();
+        ctx.arc(75, 80, 5, 0, Math.PI * 2);
+        ctx.arc(125, 80, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "black";
+        ctx.fill();
+    
+        // Draw the mouth
+        ctx.beginPath();
+        ctx.arc(100, 100, 30, 0, Math.PI);
+        ctx.stroke();
+    </script>
+  
+</html>
