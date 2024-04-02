@@ -70,13 +70,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="login.php" method="post">
             <h2>Sign in</h2>
             <div class="inputBox">
-                <input name="Username" type="text" required="required">
+                <input name="Username" type="text">
                 <span>Username</span>
                 <span style="color: red;"><?php echo $nameError ?></span>
                 <i></i>
             </div>
             <div class="inputBox">
-                <input name="password" type="password" required="required">
+                <input name="password" type="password">
                 <span>Password</span>
                 <i></i>
             </div>
