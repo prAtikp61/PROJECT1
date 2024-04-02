@@ -1,4 +1,14 @@
 <?php
+$nameError = "";
+$passwordError = "";
+if(isset($_POST['submit'])){
+    $username = $_POST['name'];
+    $password = $_POST['password'];
+
+    if(empty($username)){
+         $nameError = "Name is Required";
+    }
+}
 $message = ""; // Initialize an empty message variable
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -56,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="inputBox">
             <input type="text" required="required" id="name" name="name">
             <span>Name</span> 
+            <span style="color: red;"><?php echo $nameError ?></span>
             <i></i>
         </div>
         <div class="inputBox">

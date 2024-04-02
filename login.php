@@ -1,4 +1,14 @@
 <?php
+$nameError = "";
+$passwordError = "";
+if(isset($_POST['submit'])){
+    $username = $_POST['Username'];
+    $password = $_POST['password'];
+
+    if(empty($username)){
+         $nameError = "Name is Required";
+    }
+}
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -62,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="inputBox">
                 <input name="Username" type="text" required="required">
                 <span>Username</span>
+                <span style="color: red;"><?php echo $nameError ?></span>
                 <i></i>
             </div>
             <div class="inputBox">
@@ -73,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a href="./forgot.html">Forgot Password</a>
                 <a href="register.php">Signup</a>
             </div>
-            <input type="submit" value="Login">
+            <input type="submit" name="submit" value="Login">
         </form>
     </div>
 </body>
