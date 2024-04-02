@@ -265,9 +265,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['some'])) {
             height: 400px;
             padding: 1rem;
         }
+        .back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    position: relative;
+    left: 1350px;
+    top: 30px;
+ 
+
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
     </style>
     </head>
-    <body>
+    <body>  <a href="add.html" class="back-btn">Back</a> 
         <nav class="main-menu">
             <ul>
                 <li class="has-subnav">

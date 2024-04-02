@@ -56,9 +56,27 @@
         button:hover {
             background-color: #45a049;
         }
+        .back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    position: relative;
+    left: 1350px;
+    top: 30px;
+ 
+
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
     </style>
 </head>
-<body>
+<body>  <a href="add.html" class="back-btn">Back</a> 
     <nav class="main-menu">
         <ul>
             <li class="has-subnav">
@@ -144,7 +162,7 @@
         </ul>
     </nav>
     <div id="main">
-        <form id="frm" action="" method="post">
+        <form id="frm" action="insurance.php" method="post">
             <ul>
                 <li>
                     <label>ENTER THE NAME OF INSURANCE PROVIDER</label>

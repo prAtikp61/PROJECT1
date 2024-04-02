@@ -16,6 +16,7 @@
     justify-content: center;
     background-image: linear-gradient(90deg,blueviolet,rgb(230, 164, 164));
     top: 50px;
+    box-shadow: #07000e 10px 10px;
 }
 
 .feed1{
@@ -25,6 +26,10 @@
     
 }
 
+
+body{
+    background-image: linear-gradient(180deg,blueviolet,rgb(230, 164, 164));
+}
 
 .f1{
     position: relative;

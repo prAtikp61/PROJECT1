@@ -37,6 +37,24 @@
             font-weight: bold;
             margin-bottom: 5px;
         }
+        .back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    position: relative;
+    left: 1350px;
+    top: 30px;
+ 
+
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
         input[type="date"],
         input[type="text"],
         textarea {
@@ -62,7 +80,7 @@
         }
     </style>
 </head>
-<body>
+<body> <a href="add.html" class="back-btn">Back</a> 
     <nav class="main-menu" >
         <ul>
             <li class="has-subnav">
@@ -136,6 +154,7 @@
             </li>                        
         </ul>
 
+        
         <ul class="logout">
             <li>
                <a href="#">
@@ -149,39 +168,40 @@
     </nav>
     <h1 class="h11">HOSPITAL INFORMATION</h1>
     <div id="fill">
-        <form action="clinic.html" method="post">
+        <form action="hospital.php" method="post">
             <li>
                 <label for="admissionDate">Admission Date:</label>
-                <input type="date" name="admissionDate" id="admissionDate">
+                <input type="date" name="date" id="admissionDate">
             </li>
             <li>
                 <label for="dischargeDate">Discharge Date:</label>
-                <input type="date" name="dischargeDate" id="dischargeDate">
+                <input type="date" name="ddate" id="dischargeDate">
             </li>
             <li>
                 <label for="hospitalName">Hospital Name:</label>
-                <input type="text" name="hospitalName" id="hospitalName">
+                <input type="text" name="Hname" id="hospitalName">
             </li>
             <li>
                 <label for="treatmentDescription">Treatment Description:</label>
-                <textarea name="treatmentDescription" id="treatmentDescription" rows="6" cols="50"></textarea>
+                <textarea name="treatment" id="treatmentDescription" rows="6" cols="50"></textarea>
             </li>
             <li>
                 <label for="medicationsAdministered">Medications Administered:</label>
-                <textarea name="medicationsAdministered" id="medicationsAdministered" rows="4" cols="50"></textarea>
+                <textarea name="medications" id="medicationsAdministered" rows="4" cols="50"></textarea>
             </li>
             <li>
                 <label for="dischargeInstructions">Discharge Instructions:</label>
-                <textarea name="dischargeInstructions" id="dischargeInstructions" rows="4" cols="50"></textarea>
+                <textarea name="dinstructions" id="dischargeInstructions" rows="4" cols="50"></textarea>
             </li>
             <li>
                 <label for="followUpCare">Follow-Up Care:</label>
-                <textarea name="followUpCare" id="followUpCare" rows="4" cols="50"></textarea>
+                <textarea name="follow" id="followUpCare" rows="4" cols="50"></textarea>
             </li>
             <li>
                 <input type="submit" value="Submit">
             </li>
         </form>
+
     </div>
 </body>
 </html>

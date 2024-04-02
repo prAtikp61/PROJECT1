@@ -4,6 +4,23 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    position: relative;
+    left: 1050px;
+    bottom: 630px;
+
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
 body
 {
     background-color: #f0f0f0;
