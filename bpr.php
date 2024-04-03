@@ -3,7 +3,7 @@ session_start();
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['some'])) {
-    $xray = $_FILES['some'];
+    $bpr = $_FILES['some'];
     $username = $_SESSION['username']; 
   
     $conn = mysqli_connect('localhost', 'root', '', 'patil');
@@ -19,14 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['some'])) {
     $stmt = mysqli_prepare($conn, $sql);
 
     
-    mysqli_stmt_bind_param($stmt, "ss", $username, $xrayFileData);
+    mysqli_stmt_bind_param($stmt, "ss", $username, $bprFileData);
 
     
-    $xrayFileData = file_get_contents($xray['tmp_name']);
+    $bprFileData = file_get_contents($bpr['tmp_name']);
 
     
     if (mysqli_stmt_execute($stmt)) {
-        echo "<script>alert('blood report uploaded successfully'); window.location.href='final.html';</script>";
+        echo "<script>alert('blood report uploaded successfully'); window.location.href='final.php';</script>";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

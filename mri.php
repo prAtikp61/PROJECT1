@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['some'])) {
 
    
     if (mysqli_stmt_execute($stmt)) {
-        echo "<script>alert('MRI report uploaded successfully'); window.location.href='final.html';</script>";
+        echo "<script>alert('MRI report uploaded successfully'); window.location.href='final.php';</script>";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
