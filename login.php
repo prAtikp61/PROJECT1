@@ -1,59 +1,63 @@
 <?php
 $nameError = "";
 $passwordError = "";
+
 if(isset($_POST['submit'])){
     $username = $_POST['Username'];
     $password = $_POST['password'];
 
     if(empty($username)){
-         $nameError = "Name is Required";
+        $nameError = "Name is Required";
     }
 }
+
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    $conn = mysqli_connect('localhost', 'root', '', 'patil');
-    if ($conn->connect_error) {
-        die('Connection Failed : ' . $conn->connect_error);
-    }
-
-    
-    $input_username = $_POST['Username'];
-    $input_password = $_POST['password'];
-
-    
-    $stmt = $conn->prepare("SELECT * FROM regi WHERE username = ?");
-    $stmt->bind_param("s", $input_username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows == 1) {
-        $row = $result->fetch_assoc();
-        $stored_password = $row["pass"];
-
-       
-        if ($input_password == $stored_password) {
-            
-            $_SESSION['username'] = $input_username;
-            $_SESSION['email'] = $row["email"];
-            $_SESSION['contact'] = $row["contact"];
-
-          
-            echo "<script>alert('Welcome $name'); window.location.href='final.php';</script>";
-            exit();
-        } else {
-      
-            echo "<script>alert('invalid password'); window.location.href='login.php';</script>";
+    try {
+        $conn = new mysqli('localhost', 'root', '', 'patil');
+        if ($conn->connect_error) {
+            throw new Exception('Connection Failed : ' . $conn->connect_error);
         }
-    } else {
-        // Username not found
-        echo "<script>alert('Username not found');</script>";
-    }
 
-    // Close statement and connection
-    $stmt->close();
-    $conn->close();
+        $input_username = $_POST['Username'];
+        $input_password = $_POST['password'];
+
+        $stmt = $conn->prepare("SELECT * FROM regi WHERE username = ?");
+        if (!$stmt) {
+            throw new Exception("Prepare failed: (" . $conn->errno . ") " . $conn->error);
+        }
+
+        $stmt->bind_param("s", $input_username);
+        if (!$stmt->execute()) {
+            throw new Exception("Execute failed: (" . $stmt->errno . ") " . $stmt->error);
+        }
+
+        $result = $stmt->get_result();
+
+        if ($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+            $stored_password = $row["pass"];
+
+            if ($input_password == $stored_password) {
+                $_SESSION['username'] = $input_username;
+                $_SESSION['email'] = $row["email"];
+                $_SESSION['contact'] = $row["contact"];
+                echo "<script>alert('Welcome $name'); window.location.href='final.php';</script>";
+                exit();
+            } else {
+                echo "<script>alert('Invalid password'); window.location.href='login.php';</script>";
+            }
+        } else {
+            echo "<script>alert('Username not found');</script>";
+        }
+
+        // Close statement and connection
+        $stmt->close();
+        $conn->close();
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage();
+    }
 }
 ?>
 

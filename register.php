@@ -1,16 +1,4 @@
 <?php
-$nameError = "";
-$passwordError = "";
-if(isset($_POST['submit'])){
-    $username = $_POST['name'];
-    $password = $_POST['password'];
-
-    if(empty($username)){
-         $nameError = "Name is Required";
-    }
-}
-$message = ""; // Initialize an empty message variable
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Form submitted, process the data
     
@@ -23,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = "root";
     $password = "";
     $database = "patil";
-    $conn = mysqli_connect($servername, $username, $password, $database);
+    $conn = mysqli_connect($servername,$username,$password,$database);
     if ($conn->connect_error) {
         die('Connection Failed : ' . $conn->connect_error);
     } 
@@ -66,7 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="inputBox">
             <input type="text" required="required" id="name" name="name">
             <span>Name</span> 
-            <span style="color: red;"><?php echo $nameError ?></span>
             <i></i>
         </div>
         <div class="inputBox">
@@ -119,4 +106,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </script>
 </body>
-</html
+</html>
