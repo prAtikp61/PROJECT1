@@ -359,16 +359,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['some'])) {
                 </li>                        
             </ul>
     
-            <ul class="logout">
-                <li>
-                   <a href="#">
-                         <i class="fa fa-power-off fa-2x"></i>
-                        <span class="nav-text">
-                            Logout
-                        </span>
-                    </a>
-                </li>  
-            </ul>
+           
         </nav>
         
         <section class="huge">
