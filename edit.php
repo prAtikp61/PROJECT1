@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $name = $_POST['name'];
         $email = $_POST['email'];
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $password = $_POST['password']; // Remove hashing concept
 
         if ($_FILES['profile-photo']['error'] === UPLOAD_ERR_OK) {
             $image = $_FILES['profile-photo']['name'];
