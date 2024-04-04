@@ -135,46 +135,47 @@
 
     <script>
         document.getElementById('edit-profile-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+        event.preventDefault();
 
-            var errorMessages = document.querySelectorAll('.error-message');
-            errorMessages.forEach(function(errorMessage) {
-                errorMessage.textContent = '';
-            });
-
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-
-            var isValid = true;
-
-            if (!name) {
-                document.getElementById('name-error').textContent = 'Name is required';
-                isValid = false;
-            }
-
-            if (!email) {
-                document.getElementById('email-error').textContent = 'Email is required';
-                isValid = false;
-            } else if (!isValidEmail(email)) {
-                document.getElementById('email-error').textContent = 'Invalid email format';
-                isValid = false;
-            }
-
-            if (!password) {
-                document.getElementById('password-error').textContent = 'Password is required';
-                isValid = false;
-            }
-
-            if (isValid) {
-                this.submit();
-            }
+        var errorMessages = document.querySelectorAll('.error-message');
+        errorMessages.forEach(function(errorMessage) {
+            errorMessage.textContent = '';
         });
 
-        function isValidEmail(email) {
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        var isValid = true;
+
+        if (!name) {
+            document.getElementById('name-error').textContent = 'Name is required';
+            isValid = false;
         }
-    </script>
+
+        if (!email) {
+            document.getElementById('email-error').textContent = 'Email is required';
+            isValid = false;
+        } else if (!isValidEmail(email)) {
+            document.getElementById('email-error').textContent = 'Invalid email format';
+            isValid = false;
+        }
+
+        if (!password) {
+            document.getElementById('password-error').textContent = 'Password is required';
+            isValid = false;
+        }
+
+        if (isValid) {
+            document.getElementById('edit-profile-form').submit();
+        }
+    });
+
+    function isValidEmail(email) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+</script>
+
 </body>
 </html>
